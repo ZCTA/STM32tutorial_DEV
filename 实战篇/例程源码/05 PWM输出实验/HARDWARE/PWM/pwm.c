@@ -22,7 +22,7 @@ void TIM3_PWM_Init(u16 arr,u16 psc)
     TIM3_Handler.Init.CounterMode=TIM_COUNTERMODE_UP;//向上计数模式
     TIM3_Handler.Init.Period=arr;          	//自动重装载值
     TIM3_Handler.Init.ClockDivision=TIM_CLOCKDIVISION_DIV1;//分频因子
-	TIM3_Handler.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;//使能自动重载
+		TIM3_Handler.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;//使能自动重载
     HAL_TIM_PWM_Init(&TIM3_Handler);       	//初始化PWM
     
     TIM3_CH3Handler.OCMode=TIM_OCMODE_PWM1; //模式选择PWM1
@@ -41,29 +41,19 @@ void TIM3_PWM_Init(u16 arr,u16 psc)
 void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim)
 {
 	GPIO_InitTypeDef GPIO_Initure;
-	__HAL_AFIO_REMAP_TIM3_ENABLE();		    //TIM3通道引脚完全重映射使能
     if(htim->Instance==TIM3)
 	{
-
-//		__HAL_AFIO_REMAP_TIM3_PARTIAL();
 		__HAL_RCC_TIM3_CLK_ENABLE();			//使能定时器3
-		
-
-		__HAL_RCC_GPIOB_CLK_ENABLE();			//开启GPIOB时钟
-		
-		
-		__HAL_RCC_GPIOC_CLK_ENABLE();			//开启GPIOC时钟
+		__HAL_RCC_AFIO_CLK_ENABLE();			//开启端口复用功能时钟
 		__HAL_AFIO_REMAP_TIM3_ENABLE();		    //TIM3通道引脚完全重映射使能
+		__HAL_RCC_GPIOC_CLK_ENABLE();			//开启GPIOC时钟
+
 		GPIO_Initure.Pin=GPIO_PIN_8;           	//PC8
-		
 		GPIO_Initure.Mode=GPIO_MODE_AF_PP;  	//复用推挽输出
 		GPIO_Initure.Pull=GPIO_PULLUP;          //上拉
 		GPIO_Initure.Speed=GPIO_SPEED_HIGH;     //高速
 		
 		HAL_GPIO_Init(GPIOC,&GPIO_Initure); 	
-		GPIO_Initure.Pin=GPIO_PIN_0;           	//PB0
-		HAL_GPIO_Init(GPIOB,&GPIO_Initure); 
-		__HAL_AFIO_REMAP_TIM3_ENABLE();		    //TIM3通道引脚完全重映射使能
 	}
 }
 

@@ -4,7 +4,7 @@
 ..\obj\pwm.o: ..\USER\stm32f1xx.h
 ..\obj\pwm.o: ..\USER\stm32f103xb.h
 ..\obj\pwm.o: ..\CORE\core_cm3.h
-..\obj\pwm.o: D:\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\pwm.o: E:\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\pwm.o: ..\CORE\core_cmInstr.h
 ..\obj\pwm.o: ..\CORE\cmsis_armcc.h
 ..\obj\pwm.o: ..\CORE\core_cmFunc.h
@@ -15,7 +15,7 @@
 ..\obj\pwm.o: ..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h
 ..\obj\pwm.o: ..\USER\stm32f1xx.h
 ..\obj\pwm.o: ..\HALLIB\STM32F1xx_HAL_Driver\Inc\Legacy/stm32_hal_legacy.h
-..\obj\pwm.o: D:\keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\pwm.o: E:\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\pwm.o: ..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h
 ..\obj\pwm.o: ..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h
 ..\obj\pwm.o: ..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h
